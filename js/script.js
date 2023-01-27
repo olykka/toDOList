@@ -26,7 +26,7 @@
         document.querySelector(".js-tasks").innerHTML = htmlString;
     };
 
-    const addNewTask = () => {
+    const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
         });
