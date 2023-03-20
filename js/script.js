@@ -23,9 +23,17 @@
             </li>
             `;
     }
-    document.querySelector(".js-tasks").innerHTML = htmlString;
 
+    document.querySelector(".js-tasks").innerHTML = htmlString;
     };
+
+const addNewTask = (newTaskContent) => {
+    tasks.push({
+        content: newTaskContent,
+    });
+    
+    render(); 
+};
 
     const init = () => {
         render(); 
@@ -41,12 +49,8 @@ if (newTaskContent === "") {
     return;
 }
 
-tasks.push({
-    content: newTaskContent,
-});
 
-render(); 
-
+addNewTask(newTaskContent);
 });
 
     };
