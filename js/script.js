@@ -55,8 +55,7 @@
             <li
             class="list_item${task.done ? " style=\"text-decoration: line-through\"" : ""}
             >
-            <button class="js-done">zrobione?</button>
-            <button class="js-remove">usuń</button>
+            
             ${task.content}
             </li>
             `;
