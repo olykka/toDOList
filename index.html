@@ -13,6 +13,12 @@
     <link href="css/form.css" rel="stylesheet">
     <link href="css/form__input.css" rel="stylesheet">
     <link href="css/form__button.css" rel="stylesheet">
+    <link href="css/tasks.css" rel="stylesheet">
+    <link href="css/tasks__item.css" rel="stylesheet">
+    <link href="css/tasks__button.css" rel="stylesheet">
+    <link href="css/tasks__content.css" rel="stylesheet">
+    <link href="css/tasks__content--done.css" rel="stylesheet">
+    <link href="css/tasks__button--done.css" rel="stylesheet">
     <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
@@ -36,9 +42,16 @@
     </form></div>
     
 </section>
-<section>
+<section class="section">
     <h2 class="section__header">Lista Zadań</h2>
-    <ul class="js-tasks section__body"></ul>
+    <div class="section__body">
+    <ul class="tasks js-tasks"></ul>
+    <li class="tasks__item js-task"></li> 
+     <!-- 7:21 -->
+    <button class="tasks__button tasks__button--done js-done">V</button>
+    <span class="tasks__content tasks__content--done">zjeść obiad</span>
+            <button class="js-remove">usuń</button>
+</div>
 </section>
 </main> 
 </body>
