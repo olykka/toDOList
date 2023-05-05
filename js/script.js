@@ -2,7 +2,7 @@
     const tasks = [
         {
             content: "zaparzyć herbatę",
-            done: false,
+            done: true,
         },
         {
             content: "ugotować obiad",
@@ -20,7 +20,7 @@
 
     const removeTask = (taskIndex) => {
         tasks.splice(taskIndex, 1);
-                render();
+        render();
     };
 
     const toggleTaskDone = (taskIndex) => {
@@ -28,12 +28,12 @@
         render();
     }
 
-    const bindEvents= () => {
+    const bindEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
         removeButtons.forEach((removeButton, index) => {
             removeButton.addEventListener("click", () => {
-              removeTask(index);  
+                removeTask(index);
             });
         });
 
@@ -41,7 +41,7 @@
 
         toggleDoneButtons.forEach((toggleDoneButtons, index) => {
             toggleDoneButtons.addEventListener("click", () => {
-              toggleTaskDone(index);  
+                toggleTaskDone(index);
             });
         });
 
@@ -53,10 +53,17 @@
         for (const task of tasks) {
             htmlString += `
             <li
-            class="list_item${task.done ? " style=\"text-decoration: line-through\"" : ""}
+            class="tasks__item js-task"
             >
-            
-            ${task.content}
+            <button class="tasks__button tasks__button--toggleDone js-toggleDone">
+               ${task.done ? "V" : ""}
+               </button>
+
+               <span class="tasks__content${ task.done ? "tasks__content--done" : ""}">${task.content}</span>
+
+            <button class="tasks__button tasks__button--remove js-remove">
+            X
+            </button>
             </li>
             `;
         }
@@ -64,11 +71,11 @@
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
         bindEvents();
-        
+
     };
 
 
-    
+
 
     const init = () => {
         render();
