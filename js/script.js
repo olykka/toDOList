@@ -78,13 +78,13 @@
 
             if (newTaskContent !== "") {
                 addNewTask(newTaskContent);
-                addNewTask.value = "";
+                newTaskElement.value = "";
 
             }
 
             newTaskElement.focus();
 
-        }
+        };
 
         const form = document.querySelector(".js-form");
 
