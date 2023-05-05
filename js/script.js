@@ -24,7 +24,7 @@
                 removeTask(index);
             });
         });
-        
+
 
         const toggleDoneButtons = document.querySelectorAll(".js-toggleDone");
 
@@ -48,7 +48,7 @@
                ${task.done ? "V" : ""}
                </button>
 
-               <span class="tasks__content${ task.done ? "tasks__content--done" : ""}">${task.content}</span>
+               <span class="tasks__content${task.done ? "tasks__content--done" : ""}">${task.content}</span>
 
             <button class="tasks__button tasks__button--remove js-remove">
             X
@@ -72,14 +72,18 @@
         const onFormSubmit = (event) => {
             event.preventDefault();
 
-            const newTaskContent = document.querySelector(".js-newTask").value.trim();
+            const newTaskElement = document.querySelector(".js-newTask");
+            const newTaskContent = newTaskElement.value.trim();
 
-            if (newTaskContent === "") {
-                return;
+
+            if (newTaskContent !== "") {
+                addNewTask(newTaskContent);
+                addNewTask.value = "";
+
             }
 
+            newTaskElement.focus();
 
-            addNewTask(newTaskContent);
         }
 
         const form = document.querySelector(".js-form");
