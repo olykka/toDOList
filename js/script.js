@@ -1,20 +1,8 @@
 {
-    const tasks = [
-        {
-            content: "zaparzyć herbatę",
-            done: true,
-        },
-        {
-            content: "ugotować obiad",
-            done: true,
-        },
-    ];
+    const tasks = [];
 
     const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-        });
-
+        tasks.push({ content: newTaskContent });
         render();
     };
 
@@ -26,7 +14,7 @@
     const toggleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
-    }
+    };
 
     const bindEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
@@ -36,12 +24,13 @@
                 removeTask(index);
             });
         });
+        
 
-        const toggleDoneButtons = document.querySelectorAll(".js-done");
+        const toggleDoneButtons = document.querySelectorAll(".js-toggleDone");
 
-        toggleDoneButtons.forEach((toggleDoneButtons, index) => {
+        toggleDoneButtons.forEach((toggleDoneButtons, taskIndex) => {
             toggleDoneButtons.addEventListener("click", () => {
-                toggleTaskDone(index);
+                toggleTaskDone(taskIndex);
             });
         });
 
@@ -83,18 +72,14 @@
         const onFormSubmit = (event) => {
             event.preventDefault();
 
-            const newTaskElement = document.querySelector(".js-newTask");
-            const newTaskContent = newdTaskElement.value.trim();
-const
+            const newTaskContent = document.querySelector(".js-newTask").value.trim();
 
-            if (newTaskContent !== "") {
-                addNewTask(newTaskContent);
-                newTaskElement.value = "";
-        
+            if (newTaskContent === "") {
+                return;
             }
 
-newTaskElement.focus();
-            
+
+            addNewTask(newTaskContent);
         }
 
         const form = document.querySelector(".js-form");
